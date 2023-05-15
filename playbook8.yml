@@ -1,0 +1,13 @@
+---
+- name: create user using host scope variables
+  hosts: 172.31.23.181
+  tasks:
+    - name: create user
+      user:
+        name: "{{a}}"
+        password: "{{b}}"
+        home: "{{c}}"
+        uid: "{{d}}"
+        shell: "{{e}}"
+        comment: "{{f}}"
+...          

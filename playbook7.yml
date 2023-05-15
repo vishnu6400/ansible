@@ -1,0 +1,10 @@
+---
+- name: install firewall using host scope variables
+  hosts: webserver
+  tasks:
+    - name: install firewalld
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...

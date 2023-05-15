@@ -1,0 +1,22 @@
+---
+- name: implementing tags
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: install tree
+      apt:
+        name: tree
+        state: present
+        update_cache: yes
+      tags: tree_installation
+    - name: user creation
+      user:
+        name: anu
+        password: anu
+      tags: user_creation
+    - name: copy passwd file
+      copy:
+        src: /etc/passwd
+        dest: /tmp
+

@@ -1,0 +1,13 @@
+---
+- name: install s/w application
+  hosts: all
+  tasks:
+    - name: install uninstall
+      apt:
+        name: "{{item.a}}"
+        state: "{{item.b}}"
+        update_cache: "{{item.c}}"
+      with_items:
+        - {a: tree,b: present,c: no}
+        - {a: git,b: absent,c: no}
+        - {a: maven,b: latest,c: no}
